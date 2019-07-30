@@ -1,8 +1,8 @@
 package ru.relex.hotelteam;
 
 import java.util.List;
-import ru.relex.hotelteam.dto.bookings.BookingPaymentDto;
 import ru.relex.hotelteam.dto.date.IntervalDto;
+import ru.relex.hotelteam.dto.finance.FinanceIncomeDto;
 
 /**
  * Service for computing finance statistics.
@@ -11,5 +11,5 @@ import ru.relex.hotelteam.dto.date.IntervalDto;
  */
 public interface IFinanceService {
 
-  List<BookingPaymentDto> getIncome(IntervalDto interval);
+  List<FinanceIncomeDto> getIncome(IntervalDto interval);
 }

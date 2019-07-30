@@ -1,10 +1,12 @@
 package ru.relex.hotelteam.impl;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 import ru.relex.hotelteam.IFinanceService;
 import ru.relex.hotelteam.db.mapper.IFinanceMapper;
 import ru.relex.hotelteam.dto.bookings.BookingPaymentDto;
 import ru.relex.hotelteam.dto.date.IntervalDto;
+import ru.relex.hotelteam.dto.finance.FinanceIncomeDto;
 import ru.relex.hotelteam.mapstruct.IFinanceMapstruct;
 
 /**
@@ -12,6 +14,7 @@ import ru.relex.hotelteam.mapstruct.IFinanceMapstruct;
  *
  * @author Tarasov Ivan
  */
+@Service
 public class FinanceServiceImpl implements IFinanceService {
 
   private final IFinanceMapper mapper;
@@ -23,7 +26,7 @@ public class FinanceServiceImpl implements IFinanceService {
   }
 
   @Override
-  public List<BookingPaymentDto> getIncome(IntervalDto interval) {
-    return null;
+  public List<FinanceIncomeDto> getIncome(IntervalDto interval) {
+    return mapstruct.fromDomain(mapper.getIncome(interval.getFrom(), interval.getTo()));
   }
 }

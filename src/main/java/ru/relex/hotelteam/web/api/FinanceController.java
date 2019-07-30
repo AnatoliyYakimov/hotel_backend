@@ -2,12 +2,14 @@ package ru.relex.hotelteam.web.api;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import ru.relex.hotelteam.IFinanceService;
 import ru.relex.hotelteam.dto.date.IntervalDto;
 import ru.relex.hotelteam.dto.finance.FinanceIncomeDto;
 
@@ -27,7 +29,7 @@ public class FinanceController {
   }
 
   @GetMapping("/income")
-  public FinanceIncomeDto getIncaome(@RequestParam("from") String from,
+  public List<FinanceIncomeDto> getIncaome(@RequestParam("from") String from,
       @RequestParam("to") String to) throws ParseException {
     IntervalDto interval = new IntervalDto();
     SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
