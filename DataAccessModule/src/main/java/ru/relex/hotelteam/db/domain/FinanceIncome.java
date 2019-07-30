@@ -10,15 +10,15 @@ import java.util.List;
  */
 public class FinanceIncome {
 
-  private BookingPayment paymentList;
+  private BookingPayment payment;
   private BigDecimal income;
 
-  public BookingPayment getPaymentList() {
-    return paymentList;
+  public BookingPayment getPayment() {
+    return payment;
   }
 
-  public void setPaymentList(BookingPayment paymentList) {
-    this.paymentList = paymentList;
+  public void setPayment(BookingPayment payment) {
+    this.payment = payment;
   }
 
   public BigDecimal getIncome() {
