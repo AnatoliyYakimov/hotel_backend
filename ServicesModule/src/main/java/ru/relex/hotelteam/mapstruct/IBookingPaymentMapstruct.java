@@ -5,11 +5,12 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import ru.relex.hotelteam.db.domain.BookingPayment;
 import ru.relex.hotelteam.dto.bookings.BookingPaymentDto;
+import ru.relex.hotelteam.dto.finance.BookingSmallPaymentDto;
 
 @Mapper(componentModel = "spring")
 public interface IBookingPaymentMapstruct {
 
-  BookingPaymentDto toFinacePaymentDto(BookingPayment payment);
+  BookingSmallPaymentDto toFinacePaymentDto(BookingPayment payment);
 
   BookingPaymentDto toDto(BookingPayment payment);
 
@@ -18,6 +19,8 @@ public interface IBookingPaymentMapstruct {
   BookingPayment fromDto(BookingPaymentDto dto);
 
   List<BookingPaymentDto> toDto(List<BookingPayment> payments);
+
+  List<BookingSmallPaymentDto> toFinacePaymentDto(List<BookingPayment> payments);
 
   List<BookingPayment> fromDto(List<BookingPaymentDto> dto);
 }

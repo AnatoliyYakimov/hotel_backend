@@ -1,22 +1,23 @@
 package ru.relex.hotelteam.dto.finance;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import ru.relex.hotelteam.dto.bookings.BookingPaymentDto;
 
 /**
  * Created by Tarasov Ivan.
  */
-public class BookingFinanceDto {
+public class BookingSmallPaymentDto {
 
-  private BookingPaymentDto payment;
+  private Date date;
   private BigDecimal total;
 
-  public BookingPaymentDto getPayment() {
-    return payment;
+  public Date getDate() {
+    return date;
   }
 
-  public void setPayment(BookingPaymentDto payment) {
-    this.payment = payment;
+  public void setDate(Date date) {
+    this.date = date;
   }
 
   public BigDecimal getTotal() {

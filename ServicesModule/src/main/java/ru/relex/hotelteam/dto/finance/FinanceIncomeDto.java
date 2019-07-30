@@ -2,7 +2,6 @@ package ru.relex.hotelteam.dto.finance;
 
 import java.math.BigDecimal;
 import java.util.List;
-import ru.relex.hotelteam.dto.bookings.BookingPaymentDto;
 
 /**
  * Main representation of finance statistics for income info.
@@ -12,14 +11,14 @@ import ru.relex.hotelteam.dto.bookings.BookingPaymentDto;
  */
 public class FinanceIncomeDto {
 
-  private List<BookingPaymentDto> payments;
+  private List<BookingSmallPaymentDto> payments;
   private BigDecimal income;
 
-  public List<BookingPaymentDto> getPayments() {
+  public List<BookingSmallPaymentDto> getPayments() {
     return payments;
   }
 
-  public void setPayments(List<BookingPaymentDto> payments) {
+  public void setPayments(List<BookingSmallPaymentDto> payments) {
     this.payments = payments;
   }
 
