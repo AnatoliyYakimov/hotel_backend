@@ -10,7 +10,7 @@ import ru.relex.hotelteam.dto.finance.BookingSmallPaymentDto;
 @Mapper(componentModel = "spring")
 public interface IBookingPaymentMapstruct {
 
-  BookingSmallPaymentDto toFinacePaymentDto(BookingPayment payment);
+  BookingSmallPaymentDto toSmallPaymentDto(BookingPayment payment);
 
   BookingPaymentDto toDto(BookingPayment payment);
 
@@ -20,7 +20,7 @@ public interface IBookingPaymentMapstruct {
 
   List<BookingPaymentDto> toDto(List<BookingPayment> payments);
 
-  List<BookingSmallPaymentDto> toFinacePaymentDto(List<BookingPayment> payments);
+  List<BookingSmallPaymentDto> toSmallPaymentDto(List<BookingPayment> payments);
 
   List<BookingPayment> fromDto(List<BookingPaymentDto> dto);
 }

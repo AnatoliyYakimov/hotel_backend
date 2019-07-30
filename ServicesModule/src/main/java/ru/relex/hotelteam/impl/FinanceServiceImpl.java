@@ -47,7 +47,7 @@ public class FinanceServiceImpl implements IFinanceService {
     financeIncome.setIncome(income);
     financeIncome.setPayments(
         financeIncomeList.stream()
-        .map(paymentMapstruct::toDto).collect(Collectors.toList())
+        .map(paymentMapstruct::toSmallPaymentDto).collect(Collectors.toList())
     );
 
     return financeIncome;
