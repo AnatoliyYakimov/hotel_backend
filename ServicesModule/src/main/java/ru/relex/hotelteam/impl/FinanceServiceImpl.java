@@ -28,7 +28,7 @@ public class FinanceServiceImpl implements IFinanceService {
   }
 
   @Override
-  public List<FinanceIncomeDto> getIncome(IntervalDto interval) {
+  public FinanceIncomeDto getIncome(IntervalDto interval) {
 
     List<FinanceIncome> financeIncomeList = mapper
         .getIncome(interval.getFrom(), interval.getTo());

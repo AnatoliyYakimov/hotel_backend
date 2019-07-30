@@ -11,5 +11,5 @@ import ru.relex.hotelteam.dto.finance.FinanceIncomeDto;
  */
 public interface IFinanceService {
 
-  List<FinanceIncomeDto> getIncome(IntervalDto interval);
+  FinanceIncomeDto getIncome(IntervalDto interval);
 }

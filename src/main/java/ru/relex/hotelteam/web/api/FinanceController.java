@@ -29,7 +29,7 @@ public class FinanceController {
   }
 
   @GetMapping("/income")
-  public List<FinanceIncomeDto> getIncaome(@RequestParam("from") String from,
+  public FinanceIncomeDto getIncaome(@RequestParam("from") String from,
       @RequestParam("to") String to) throws ParseException {
     IntervalDto interval = new IntervalDto();
     SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
