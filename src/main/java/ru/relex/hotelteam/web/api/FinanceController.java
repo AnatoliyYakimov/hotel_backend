@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.relex.hotelteam.dto.date.IntervalDto;
+import ru.relex.hotelteam.dto.finance.FinanceIncomeDto;
 
 /**
  * Created by Tarasov Ivan.
