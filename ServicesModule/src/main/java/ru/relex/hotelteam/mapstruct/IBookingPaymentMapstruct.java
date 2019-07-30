@@ -9,6 +9,8 @@ import ru.relex.hotelteam.dto.bookings.BookingPaymentDto;
 @Mapper(componentModel = "spring")
 public interface IBookingPaymentMapstruct {
 
+  BookingPaymentDto toFinacePaymentDto(BookingPayment payment);
+
   BookingPaymentDto toDto(BookingPayment payment);
 
   @Mapping(target = "id", ignore = true)

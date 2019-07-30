@@ -37,7 +37,9 @@ public class FinanceServiceImpl implements IFinanceService {
     BigDecimal income = BigDecimal.ZERO;
 
     // просуммируем доход
-    financeIncomeList.forEach(i -> income.add(i.getTotal()));
+    for (BookingPayment b: financeIncomeList) {
+      income = income.add(b.getTotal());
+    }
 
     // составим финасовую информацию
     FinanceIncomeDto financeIncome = new FinanceIncomeDto();
