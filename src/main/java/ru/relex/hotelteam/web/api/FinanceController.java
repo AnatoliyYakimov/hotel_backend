@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import ru.relex.hotelteam.dto.date.IntervalDto;
 
 /**
  * Created by Tarasov Ivan.
@@ -22,5 +23,17 @@ public class FinanceController {
 
   public FinanceController(IFinanceService service) {
     this.service = service;
+  }
+
+  @GetMapping("/income")
+  public FinanceIncomeDto getIncaome(@RequestParam("from") String from,
+      @RequestParam("to") String to) throws ParseException {
+    IntervalDto interval = new IntervalDto();
+    SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+
+    interval.setFrom(format.parse(from));
+    interval.setTo(format.parse(to));
+
+    service.getIncome(interval);
   }
 }

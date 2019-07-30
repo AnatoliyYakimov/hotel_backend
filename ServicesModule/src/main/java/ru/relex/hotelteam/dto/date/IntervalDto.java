@@ -1,4 +1,4 @@
-package ru.relex.hotelteam.dto;
+package ru.relex.hotelteam.dto.date;
 
 
 import java.util.Date;
