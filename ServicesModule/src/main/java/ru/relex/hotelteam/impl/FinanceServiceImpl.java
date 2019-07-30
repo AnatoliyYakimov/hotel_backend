@@ -2,6 +2,7 @@ package ru.relex.hotelteam.impl;
 
 import java.util.List;
 import ru.relex.hotelteam.IFinanceService;
+import ru.relex.hotelteam.db.mapper.IFinanceMapper;
 import ru.relex.hotelteam.dto.bookings.BookingPaymentDto;
 import ru.relex.hotelteam.dto.date.IntervalDto;
 import ru.relex.hotelteam.mapstruct.IFinanceMapstruct;
