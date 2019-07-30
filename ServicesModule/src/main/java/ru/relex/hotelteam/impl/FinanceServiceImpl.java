@@ -1,8 +1,10 @@
 package ru.relex.hotelteam.impl;
 
+import java.math.BigDecimal;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import ru.relex.hotelteam.IFinanceService;
+import ru.relex.hotelteam.db.domain.FinanceIncome;
 import ru.relex.hotelteam.db.mapper.IFinanceMapper;
 import ru.relex.hotelteam.dto.bookings.BookingPaymentDto;
 import ru.relex.hotelteam.dto.date.IntervalDto;
@@ -27,6 +29,14 @@ public class FinanceServiceImpl implements IFinanceService {
 
   @Override
   public List<FinanceIncomeDto> getIncome(IntervalDto interval) {
+
+    List<FinanceIncome> financeIncomeList = mapper
+        .getIncome(interval.getFrom(), interval.getTo());
+
+    BigDecimal
+
+
+
     return mapstruct.fromDomain(mapper.getIncome(interval.getFrom(), interval.getTo()));
   }
 }

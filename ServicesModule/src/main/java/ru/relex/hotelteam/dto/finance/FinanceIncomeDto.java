@@ -5,21 +5,22 @@ import java.util.List;
 import ru.relex.hotelteam.dto.bookings.BookingPaymentDto;
 
 /**
- * For representation of finance statistics for income info.
+ * Main representation of finance statistics for income info.
+ * Consists a list of payments and whole income for interval.
  *
  * @author Tarasov Ivan
  */
 public class FinanceIncomeDto {
 
-  private BookingPaymentDto payment;
+  private List<BookingPaymentDto> payments;
   private BigDecimal income;
 
-  public BookingPaymentDto getPayment() {
-    return payment;
+  public List<BookingPaymentDto> getPayments() {
+    return payments;
   }
 
-  public void setPayment(BookingPaymentDto payment) {
-    this.payment = payment;
+  public void setPayments(List<BookingPaymentDto> payments) {
+    this.payments = payments;
   }
 
   public BigDecimal getIncome() {
