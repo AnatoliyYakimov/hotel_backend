@@ -11,15 +11,15 @@ import ru.relex.hotelteam.dto.bookings.BookingPaymentDto;
  */
 public class FinanceIncomeDto {
 
-  private List<BookingPaymentDto> paymentList;
+  private BookingPaymentDto payment;
   private BigDecimal income;
 
-  public List<BookingPaymentDto> getPaymentList() {
-    return paymentList;
+  public BookingPaymentDto getPayment() {
+    return payment;
   }
 
-  public void setPaymentList(List<BookingPaymentDto> paymentList) {
-    this.paymentList = paymentList;
+  public void setPayment(BookingPaymentDto payment) {
+    this.payment = payment;
   }
 
   public BigDecimal getIncome() {
