@@ -37,6 +37,6 @@ public class FinanceController {
     interval.setFrom(format.parse(from));
     interval.setTo(format.parse(to));
 
-    service.getIncome(interval);
+    return service.getIncome(interval);
   }
 }

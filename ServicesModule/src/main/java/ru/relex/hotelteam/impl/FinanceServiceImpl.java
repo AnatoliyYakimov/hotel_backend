@@ -2,14 +2,14 @@ package ru.relex.hotelteam.impl;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import ru.relex.hotelteam.IFinanceService;
-import ru.relex.hotelteam.db.domain.FinanceIncome;
+import ru.relex.hotelteam.db.domain.BookingPayment;
 import ru.relex.hotelteam.db.mapper.IFinanceMapper;
-import ru.relex.hotelteam.dto.bookings.BookingPaymentDto;
 import ru.relex.hotelteam.dto.date.IntervalDto;
 import ru.relex.hotelteam.dto.finance.FinanceIncomeDto;
-import ru.relex.hotelteam.mapstruct.IFinanceMapstruct;
+import ru.relex.hotelteam.mapstruct.IBookingPaymentMapstruct;
 
 /**
  * For representation of finance statistics for income info.
@@ -20,23 +20,34 @@ import ru.relex.hotelteam.mapstruct.IFinanceMapstruct;
 public class FinanceServiceImpl implements IFinanceService {
 
   private final IFinanceMapper mapper;
-  private final IFinanceMapstruct mapstruct;
 
-  public FinanceServiceImpl(IFinanceMapper mapper, IFinanceMapstruct mapstruct) {
+  private final IBookingPaymentMapstruct paymentMapstruct;
+
+  public FinanceServiceImpl(IFinanceMapper mapper, IBookingPaymentMapstruct paymentMapstruct) {
     this.mapper = mapper;
-    this.mapstruct = mapstruct;
+    this.paymentMapstruct = paymentMapstruct;
   }
 
   @Override
   public FinanceIncomeDto getIncome(IntervalDto interval) {
 
-    List<FinanceIncome> financeIncomeList = mapper
+    List<BookingPayment> financeIncomeList = mapper
         .getIncome(interval.getFrom(), interval.getTo());
 
-    BigDecimal
+    BigDecimal income = BigDecimal.ZERO;
 
+    // просуммируем доход
+    financeIncomeList.forEach(i -> income.add(i.getTotal()));
 
+    // составим финасовую информацию
+    FinanceIncomeDto financeIncome = new FinanceIncomeDto();
 
-    return mapstruct.fromDomain(mapper.getIncome(interval.getFrom(), interval.getTo()));
+    financeIncome.setIncome(income);
+    financeIncome.setPayments(
+        financeIncomeList.stream()
+        .map(paymentMapstruct::toDto).collect(Collectors.toList())
+    );
+
+    return financeIncome;
   }
 }

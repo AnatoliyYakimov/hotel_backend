@@ -3,7 +3,7 @@ package ru.relex.hotelteam.db.mapper;
 import java.util.Date;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import ru.relex.hotelteam.db.domain.FinanceIncome;
+import ru.relex.hotelteam.db.domain.BookingPayment;
 
 /**
  * For operating(create, update, get, ... ) with finance info through db.
@@ -12,5 +12,5 @@ import ru.relex.hotelteam.db.domain.FinanceIncome;
  */
 public interface IFinanceMapper {
 
-  List<FinanceIncome> getIncome(@Param("from") Date from, @Param("to") Date to);
+  List<BookingPayment> getIncome(@Param("from") Date from, @Param("to") Date to);
 }
