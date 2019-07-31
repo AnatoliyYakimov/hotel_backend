@@ -79,6 +79,8 @@ public class BookingController {
       bookingService.update(id, dto);
     }
   */
+
+  @RolesAllowed({"ROLE_OWNER","ROLE_ADMIN"})
   @GetMapping("/active")
   public List<BookingDto> listActiveBookings() {
     return bookingService.listActiveBookings();
