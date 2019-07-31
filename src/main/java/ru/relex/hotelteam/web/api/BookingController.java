@@ -53,6 +53,7 @@ public class BookingController {
     bookingService.registration(registerDto);
   }
 
+  @RolesAllowed({"ROLE_OWNER","ROLE_ADMIN"})
   @PutMapping("/eviction/{id}")
   @ResponseStatus(HttpStatus.OK)
   public void checkOut(@PathVariable("id") int id) {
