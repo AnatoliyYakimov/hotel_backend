@@ -10,7 +10,6 @@ import ru.relex.hotelteam.db.domain.Room;
 import ru.relex.hotelteam.db.mapper.IRoomMapper;
 import ru.relex.hotelteam.dto.RoomBaseDto;
 import ru.relex.hotelteam.dto.RoomWithIdDto;
-import ru.relex.hotelteam.dto.bookings.BookingIntervalDto;
 import ru.relex.hotelteam.dto.date.IntervalDto;
 import ru.relex.hotelteam.exceptions.EntityNotFoundException;
 import ru.relex.hotelteam.mapstruct.IRoomMapstruct;

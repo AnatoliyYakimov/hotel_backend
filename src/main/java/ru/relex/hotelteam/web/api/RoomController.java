@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.relex.hotelteam.IRoomService;
 import ru.relex.hotelteam.dto.RoomBaseDto;
 import ru.relex.hotelteam.dto.RoomWithIdDto;
-import ru.relex.hotelteam.dto.bookings.BookingIntervalDto;
 import ru.relex.hotelteam.dto.date.IntervalDto;
 
 @RestController
