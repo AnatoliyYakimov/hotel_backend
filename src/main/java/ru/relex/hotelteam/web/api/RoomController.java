@@ -19,6 +19,7 @@ import ru.relex.hotelteam.IRoomService;
 import ru.relex.hotelteam.dto.RoomBaseDto;
 import ru.relex.hotelteam.dto.RoomWithIdDto;
 import ru.relex.hotelteam.dto.bookings.BookingIntervalDto;
+import ru.relex.hotelteam.dto.date.IntervalDto;
 
 @RestController
 @RequestMapping(path = "/rooms", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -44,11 +45,11 @@ public class RoomController {
   public List<RoomWithIdDto> getVacancies(@RequestParam("checkIn") String checkIn,
       @RequestParam("checkOut") String checkOut)
       throws ParseException {
-    BookingIntervalDto interval = new BookingIntervalDto();
+    IntervalDto interval = new IntervalDto();
     SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 
-    interval.setCheckInDate(format.parse(checkIn));
-    interval.setCheckOutDate(format.parse(checkOut));
+    interval.setFrom(format.parse(checkIn));
+    interval.setTo(format.parse(checkOut));
     return service.getVacancies(interval);
   }
 

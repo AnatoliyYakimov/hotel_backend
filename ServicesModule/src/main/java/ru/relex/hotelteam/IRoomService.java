@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 import ru.relex.hotelteam.dto.RoomBaseDto;
 import ru.relex.hotelteam.dto.RoomWithIdDto;
-import ru.relex.hotelteam.dto.bookings.BookingIntervalDto;
+import ru.relex.hotelteam.dto.date.IntervalDto;
 import ru.relex.hotelteam.exceptions.EntityNotFoundException;
 
 /**
@@ -16,7 +16,7 @@ public interface IRoomService {
 
   List<RoomWithIdDto> getAllRooms();
 
-  List<RoomWithIdDto> getVacancies(BookingIntervalDto dto);
+  List<RoomWithIdDto> getVacancies(IntervalDto dto);
 
   void deleteRoom(int id);
 
