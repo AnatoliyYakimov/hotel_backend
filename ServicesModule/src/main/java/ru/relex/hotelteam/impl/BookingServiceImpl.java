@@ -44,7 +44,7 @@ public class BookingServiceImpl implements IBookingService {
       paymentService.createPayment(newBooking);
       return mapstruct.toDto(newBooking);
     } else {
-      throw new CreateBookingException();
+      throw new CreateBookingException("Cannot find a time for booking");
     }
   }
 

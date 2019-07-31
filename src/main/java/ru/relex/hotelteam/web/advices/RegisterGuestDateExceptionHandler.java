@@ -19,9 +19,7 @@ import ru.relex.hotelteam.exceptions.RegisterGuestException;
 public class RegisterGuestDateExceptionHandler extends ResponseEntityExceptionHandler {
 
   @ExceptionHandler(RegisterGuestException.class)
-  protected ResponseEntity<Object> handleException(RuntimeException ex, WebRequest request) {
-    String bodyOfResponse = "Registration date is out of booking dates";
-    return handleExceptionInternal(ex, bodyOfResponse,
-        new HttpHeaders(), HttpStatus.CONFLICT, request);
+  protected ResponseEntity<Object> handleException(RuntimeException ex) {
+    return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
   }
 }

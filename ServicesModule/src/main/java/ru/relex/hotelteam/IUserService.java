@@ -3,6 +3,7 @@ package ru.relex.hotelteam;
 import java.util.List;
 import ru.relex.hotelteam.dto.UserBaseDto;
 import ru.relex.hotelteam.dto.UserDto;
+import ru.relex.hotelteam.dto.UserEmployeeDto;
 import ru.relex.hotelteam.dto.UserSecurityDto;
 import ru.relex.hotelteam.dto.UserUpdateDto;
 import ru.relex.hotelteam.dto.bookings.BookingFullDto;
@@ -12,6 +13,8 @@ import ru.relex.hotelteam.shared.model.Authority;
 public interface IUserService {
 
   UserBaseDto createUser(UserDto user);
+
+  UserBaseDto createEmployee(UserEmployeeDto user);
 
   UserBaseDto findById(int id) throws EntityNotFoundException;
 

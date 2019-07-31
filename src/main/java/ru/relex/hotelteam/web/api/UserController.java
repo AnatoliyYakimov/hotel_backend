@@ -18,6 +18,7 @@ import ru.relex.hotelteam.IUserService;
 import ru.relex.hotelteam.dto.UserAuthDto;
 import ru.relex.hotelteam.dto.UserBaseDto;
 import ru.relex.hotelteam.dto.UserDto;
+import ru.relex.hotelteam.dto.UserEmployeeDto;
 import ru.relex.hotelteam.dto.UserSecurityDto;
 import ru.relex.hotelteam.dto.UserUpdateDto;
 import ru.relex.hotelteam.dto.bookings.BookingFullDto;
@@ -41,22 +42,33 @@ public class UserController {
     return userService.createUser(dto);
   }
 
+  @RolesAllowed("ROLE_OWNER")
+  @PostMapping("/employees")
+  @ResponseStatus(HttpStatus.CREATED)
+  public UserBaseDto createUserEmployee(@RequestBody UserEmployeeDto dto) {
+    return userService.createEmployee(dto);
+  }
+
+  @RolesAllowed({"ROLE_OWNER","ROLE_ADMIN"})
   @GetMapping
   public List<UserBaseDto> listUsers() {
     return userService.listUsers();
   }
 
+  @RolesAllowed({"ROLE_OWNER","ROLE_ADMIN"})
   @GetMapping("/{id}")
   public UserBaseDto findById(@PathVariable("id") int id) {
     return userService.findById(id);
   }
 
+  @RolesAllowed("ROLE_OWNER")
   @DeleteMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
   public void removeUser(@PathVariable("id") int id) {
     userService.delete(id);
   }
 
+  @RolesAllowed("ROLE_OWNER")
   @PutMapping("/{id}")
   public void updateUser(@PathVariable("id") int id, @RequestBody UserUpdateDto dto) {
     userService.update(id, dto);
@@ -73,6 +85,7 @@ public class UserController {
     userService.updateSecurityInfo(id, dto);
   }
 
+  @RolesAllowed({"ROLE_OWNER","ROLE_ADMIN"})
   @GetMapping("/current-guests")
   public List<UserBaseDto> getCurrentGuests() {
     return userService.getCurrentGuests();
