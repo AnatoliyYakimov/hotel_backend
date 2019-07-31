@@ -1,6 +1,7 @@
 package ru.relex.hotelteam.web.api;
 
 import java.util.List;
+import javax.annotation.security.RolesAllowed;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -45,6 +46,7 @@ public class BookingController {
     return bookingService.listBookingsByUserId(userId);
   }
 
+  @RolesAllowed({"ROLE_OWNER","ROLE_ADMIN"})
   @PostMapping("/users/registration")
   @ResponseStatus(HttpStatus.OK)
   public void registerGuest(@RequestBody BookingRegisterDto registerDto) {
