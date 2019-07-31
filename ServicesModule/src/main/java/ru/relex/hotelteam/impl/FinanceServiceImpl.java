@@ -37,7 +37,7 @@ public class FinanceServiceImpl implements IFinanceService {
     BigDecimal income = BigDecimal.ZERO;
 
     // просуммируем доход
-    for (BookingPayment b: financeIncomeList) {
+    for (BookingPayment b : financeIncomeList) {
       income = income.add(b.getTotal());
     }
 
@@ -47,7 +47,7 @@ public class FinanceServiceImpl implements IFinanceService {
     financeIncome.setIncome(income);
     financeIncome.setPayments(
         financeIncomeList.stream()
-        .map(paymentMapstruct::toSmallPaymentDto).collect(Collectors.toList())
+            .map(paymentMapstruct::toSmallPaymentDto).collect(Collectors.toList())
     );
 
     return financeIncome;

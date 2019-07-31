@@ -7,7 +7,7 @@ import ru.relex.hotelteam.shared.model.Authority;
  *
  * @author Tarasov Ivan
  */
-public class UserEmployeeDto extends  UserDto {
+public class UserEmployeeDto extends UserDto {
 
   private Authority authority;
 

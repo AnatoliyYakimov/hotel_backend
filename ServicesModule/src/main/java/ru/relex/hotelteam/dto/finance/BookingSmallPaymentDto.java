@@ -2,7 +2,6 @@ package ru.relex.hotelteam.dto.finance;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import ru.relex.hotelteam.dto.bookings.BookingPaymentDto;
 
 /**
  * Created by Tarasov Ivan.

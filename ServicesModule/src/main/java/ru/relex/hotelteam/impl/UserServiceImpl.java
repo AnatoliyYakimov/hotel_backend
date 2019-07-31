@@ -52,16 +52,17 @@ public class UserServiceImpl implements IUserService {
   /**
    * Creation of a new employee.
    *
-   * @author        Tarasov Ivan
-   * @param user    a new employee
-   * @return        main info about him
+   * @param user a new employee
+   * @return main info about him
+   * @author Tarasov Ivan
    */
   @Override
   public UserBaseDto createEmployee(UserEmployeeDto user) {
 
-    if(user.getAuthority() == Authority.GUEST)
+    if (user.getAuthority() == Authority.GUEST) {
       throw new EmployeeException("Create employee with unacceptable authority: "
           + user.getAuthority().name());
+    }
 
     User u = mapstruct.toDomainFromEmployee(user);
     return mapstruct.toBaseDto(mapper.createUser(u));
@@ -111,8 +112,8 @@ public class UserServiceImpl implements IUserService {
   /**
    * Created by tarasov Ivan.
    *
-   * @param userId      updating user
-   * @param authority   concrete security authority for user (OWNER, ADMIN, GUEST)
+   * @param userId updating user
+   * @param authority concrete security authority for user (OWNER, ADMIN, GUEST)
    */
   @Override
   public void updateUserAuthority(int userId, Authority authority) {

@@ -92,7 +92,6 @@ public class BookingController {
     return bookingService.listActiveBookingsForUser(userId);
   }
 
-
   @PutMapping("/cancel/{id}")
   @ResponseStatus(HttpStatus.OK)
   public void cancelBooking(@PathVariable("id") int bookingId) {

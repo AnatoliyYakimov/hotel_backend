@@ -97,6 +97,7 @@ public class UserController {
     return userService.getBookingHistoryForUser(id);
   }
 
+  // тут стоит rest api end-point обдумать для удобства
   @RolesAllowed({"ROLE_OWNER","ROLE_ADMIN"})
   @GetMapping("/booking-history")
   public List<BookingFullDto> getBookingHistoryForUser(@PathParam("userId") int id) {

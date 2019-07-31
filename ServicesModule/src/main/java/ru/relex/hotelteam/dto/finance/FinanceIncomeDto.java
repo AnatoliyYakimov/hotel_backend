@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 /**
- * Main representation of finance statistics for income info.
- * Consists a list of payments and whole income for interval.
+ * Main representation of finance statistics for income info. Consists a list of payments and whole income for
+ * interval.
  *
  * @author Tarasov Ivan
  */
