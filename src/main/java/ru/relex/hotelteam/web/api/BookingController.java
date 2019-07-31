@@ -86,6 +86,7 @@ public class BookingController {
     return bookingService.listActiveBookings();
   }
 
+  @RolesAllowed("ROLE_GUEST")
   @GetMapping("/active/guests/{id}")
   public List<BookingDto> listActiveBookingsForUser(@PathVariable("id") int userId) {
     return bookingService.listActiveBookingsForUser(userId);
