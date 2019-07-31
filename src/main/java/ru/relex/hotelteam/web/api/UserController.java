@@ -2,6 +2,7 @@ package ru.relex.hotelteam.web.api;
 
 import java.util.List;
 import javax.annotation.security.RolesAllowed;
+import javax.websocket.server.PathParam;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -80,6 +81,12 @@ public class UserController {
   @RolesAllowed("ROLE_GUEST")
   @GetMapping("/{id}/booking-history")
   public List<BookingFullDto> getBookingHistory(@PathVariable("id") int id) {
+    return userService.getBookingHistoryForUser(id);
+  }
+
+  @RolesAllowed({"ROLE_OWNER","ROLE_ADMIN"})
+  @GetMapping("/booking-history")
+  public List<BookingFullDto> getBookingHistoryForUser(@PathParam("userId") int id) {
     return userService.getBookingHistoryForUser(id);
   }
 }
