@@ -22,6 +22,6 @@ public class RegisterGuestDateExceptionHandler extends ResponseEntityExceptionHa
   protected ResponseEntity<Object> handleException(RuntimeException ex, WebRequest request) {
     String bodyOfResponse = "Registration date is out of booking dates";
     return handleExceptionInternal(ex, bodyOfResponse,
-        new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+        new HttpHeaders(), HttpStatus.CONFLICT, request);
   }
 }

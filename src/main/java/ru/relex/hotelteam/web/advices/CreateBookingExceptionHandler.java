@@ -22,6 +22,6 @@ public class CreateBookingExceptionHandler extends ResponseEntityExceptionHandle
   protected ResponseEntity<Object> handleException(RuntimeException ex, WebRequest request) {
     String bodyOfResponse = "Chosen room is booked on the dates";
     return handleExceptionInternal(ex, bodyOfResponse,
-        new HttpHeaders(), HttpStatus.NOT_ACCEPTABLE, request);
+        new HttpHeaders(), HttpStatus.CONFLICT, request);
   }
 }
