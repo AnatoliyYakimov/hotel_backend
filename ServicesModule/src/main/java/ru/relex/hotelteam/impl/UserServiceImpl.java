@@ -10,9 +10,11 @@ import ru.relex.hotelteam.db.mapper.IUserMapper;
 import ru.relex.hotelteam.dto.RoomWithIdDto;
 import ru.relex.hotelteam.dto.UserBaseDto;
 import ru.relex.hotelteam.dto.UserDto;
+import ru.relex.hotelteam.dto.UserEmployeeDto;
 import ru.relex.hotelteam.dto.UserSecurityDto;
 import ru.relex.hotelteam.dto.UserUpdateDto;
 import ru.relex.hotelteam.dto.bookings.BookingFullDto;
+import ru.relex.hotelteam.exceptions.EmployeeException;
 import ru.relex.hotelteam.exceptions.EntityNotFoundException;
 import ru.relex.hotelteam.mapstruct.IFacilityMapstruct;
 import ru.relex.hotelteam.mapstruct.IUserMapstruct;
@@ -44,6 +46,25 @@ public class UserServiceImpl implements IUserService {
   public UserBaseDto createUser(final UserDto user) {
     User u = mapstruct.toDomain(user);
     u.setAuthority(Authority.GUEST);
+    return mapstruct.toBaseDto(mapper.createUser(u));
+  }
+
+  /**
+   * Creation of a new employee.
+   *
+   * @param user a new employee
+   * @return main info about him
+   * @author Tarasov Ivan
+   */
+  @Override
+  public UserBaseDto createEmployee(UserEmployeeDto user) {
+
+    if (user.getAuthority() == Authority.GUEST) {
+      throw new EmployeeException("Create employee with unacceptable authority: "
+          + user.getAuthority().name());
+    }
+
+    User u = mapstruct.toDomainFromEmployee(user);
     return mapstruct.toBaseDto(mapper.createUser(u));
   }
 
@@ -91,8 +112,8 @@ public class UserServiceImpl implements IUserService {
   /**
    * Created by tarasov Ivan.
    *
-   * @param userId      updating user
-   * @param authority   concrete security authority for user (OWNER, ADMIN, GUEST)
+   * @param userId updating user
+   * @param authority concrete security authority for user (OWNER, ADMIN, GUEST)
    */
   @Override
   public void updateUserAuthority(int userId, Authority authority) {

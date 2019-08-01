@@ -1,7 +1,6 @@
 package ru.relex.hotelteam.dto;
 
 import java.util.Date;
-import ru.relex.hotelteam.shared.model.Authority;
 
 
 public class UserDto {

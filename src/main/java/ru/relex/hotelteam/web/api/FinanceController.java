@@ -29,6 +29,7 @@ public class FinanceController {
     this.service = service;
   }
 
+  @RolesAllowed("ROLE_OWNER")
   @GetMapping("/income")
   public FinanceIncomeDto getIncaome(@RequestParam("from") String from,
       @RequestParam("to") String to) throws ParseException {

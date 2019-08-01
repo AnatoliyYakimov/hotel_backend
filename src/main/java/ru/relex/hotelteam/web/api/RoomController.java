@@ -40,6 +40,7 @@ public class RoomController {
     return service.getAllRooms();
   }
 
+  @RolesAllowed({"ROLE_OWNER","ROLE_ADMIN"})
   @GetMapping("/vacancies")
   public List<RoomWithIdDto> getVacancies(@RequestParam("checkIn") String checkIn,
       @RequestParam("checkOut") String checkOut)

@@ -1,6 +1,7 @@
 package ru.relex.hotelteam.web.api;
 
 import java.util.List;
+import javax.annotation.security.RolesAllowed;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -45,12 +46,14 @@ public class BookingController {
     return bookingService.listBookingsByUserId(userId);
   }
 
+  @RolesAllowed({"ROLE_OWNER","ROLE_ADMIN"})
   @PostMapping("/users/registration")
   @ResponseStatus(HttpStatus.OK)
   public void registerGuest(@RequestBody BookingRegisterDto registerDto) {
     bookingService.registration(registerDto);
   }
 
+  @RolesAllowed({"ROLE_OWNER","ROLE_ADMIN"})
   @PutMapping("/eviction/{id}")
   @ResponseStatus(HttpStatus.OK)
   public void checkOut(@PathVariable("id") int id) {
@@ -76,16 +79,18 @@ public class BookingController {
       bookingService.update(id, dto);
     }
   */
+
+  @RolesAllowed({"ROLE_OWNER","ROLE_ADMIN"})
   @GetMapping("/active")
   public List<BookingDto> listActiveBookings() {
     return bookingService.listActiveBookings();
   }
 
+  @RolesAllowed("ROLE_GUEST")
   @GetMapping("/active/guests/{id}")
   public List<BookingDto> listActiveBookingsForUser(@PathVariable("id") int userId) {
     return bookingService.listActiveBookingsForUser(userId);
   }
-
 
   @PutMapping("/cancel/{id}")
   @ResponseStatus(HttpStatus.OK)

@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import ru.relex.hotelteam.db.domain.User;
 import ru.relex.hotelteam.dto.UserBaseDto;
 import ru.relex.hotelteam.dto.UserDto;
+import ru.relex.hotelteam.dto.UserEmployeeDto;
 import ru.relex.hotelteam.dto.UserSecurityDto;
 import ru.relex.hotelteam.dto.UserUpdateDto;
 
@@ -33,6 +34,9 @@ public abstract class IUserMapstruct {
   @Mapping(target = "password", expression = "java(mapPassword(dto))")
   @Mapping(target = "authority", ignore = true)
   public abstract User toDomain(UserDto dto);
+
+  @Mapping(target = "password", expression = "java(mapPassword(dto))")
+  public abstract User toDomainFromEmployee(UserEmployeeDto dto);
 
   public abstract List<UserBaseDto> fromDomain(List<User> users);
 
