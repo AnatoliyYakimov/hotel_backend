@@ -2,7 +2,7 @@ package ru.relex.hotelteam.db.domain;
 
 import java.math.BigDecimal;
 
-public class RoomCategory {
+public class Category {
 
   private int id;
   private String name;

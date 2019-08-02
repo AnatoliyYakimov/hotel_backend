@@ -1,4 +1,4 @@
-package ru.relex.hotelteam;
+package ru.relex.hotelteam.services;
 
 import java.time.LocalDateTime;
 import java.util.List;

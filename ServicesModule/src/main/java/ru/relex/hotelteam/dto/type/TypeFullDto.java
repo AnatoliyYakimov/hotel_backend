@@ -1,8 +1,8 @@
-package ru.relex.hotelteam.db.domain;
+package ru.relex.hotelteam.dto.type;
 
 import java.math.BigDecimal;
 
-public class RoomType {
+public class TypeFullDto {
 
   private int id;
   private boolean twinBed;
@@ -17,7 +17,7 @@ public class RoomType {
     this.id = id;
   }
 
-  public boolean isTwinBed() {
+  public boolean getTwinBed() {
     return twinBed;
   }
 

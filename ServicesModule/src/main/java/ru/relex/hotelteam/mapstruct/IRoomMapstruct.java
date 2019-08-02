@@ -13,7 +13,7 @@ public interface IRoomMapstruct {
   @Mapping(target = "category", ignore = true)
   @Mapping(source = "typeId", target = "type.id")
   @Mapping(source = "places", target = "type.places")
-  @Mapping(source = "twinBed", target = "type.twinbed")
+  @Mapping(source = "twinBed", target = "type.twinBed")
   @Mapping(source = "categoryId", target = "category.id")
   @Mapping(source = "categoryName", target = "category.name")
   RoomBaseDto toBaseDto(Room room);
@@ -22,7 +22,7 @@ public interface IRoomMapstruct {
   @Mapping(target = "category", ignore = true)
   @Mapping(source = "typeId", target = "type.id")
   @Mapping(source = "places", target = "type.places")
-  @Mapping(source = "twinBed", target = "type.twinbed")
+  @Mapping(source = "twinBed", target = "type.twinBed")
   @Mapping(source = "categoryId", target = "category.id")
   @Mapping(source = "categoryName", target = "category.name")
   RoomWithIdDto toRoomWithIdDto(Room room);
@@ -30,14 +30,14 @@ public interface IRoomMapstruct {
   @Mapping(target = "id", ignore = true)
   @Mapping(target = "typeId", source = "type.id")
   @Mapping(target = "places", source = "type.places")
-  @Mapping(target = "twinBed", source = "type.twinbed")
+  @Mapping(target = "twinBed", source = "type.twinBed")
   @Mapping(target = "categoryId", source = "category.id")
   @Mapping(target = "categoryName", source = "category.name")
   Room toDomain(RoomBaseDto dto);
 
   @Mapping(target = "typeId", source = "type.id")
   @Mapping(target = "places", source = "type.places")
-  @Mapping(target = "twinBed", source = "type.twinbed")
+  @Mapping(target = "twinBed", source = "type.twinBed")
   @Mapping(target = "categoryId", source = "category.id")
   @Mapping(target = "categoryName", source = "category.name")
   Room toDomain(RoomWithIdDto dto);

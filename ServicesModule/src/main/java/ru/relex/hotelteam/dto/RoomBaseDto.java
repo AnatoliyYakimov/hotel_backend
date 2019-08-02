@@ -2,9 +2,9 @@ package ru.relex.hotelteam.dto;
 
 import java.math.BigDecimal;
 import java.util.List;
-import ru.relex.hotelteam.dto.category.CategoryDtoWithNoPricemult;
-import ru.relex.hotelteam.dto.facility.FacilityDtoWithNoPrice;
-import ru.relex.hotelteam.dto.type.TypeDtoWithNoPrice;
+import ru.relex.hotelteam.dto.category.CategoryDto;
+import ru.relex.hotelteam.dto.facility.FacilityDto;
+import ru.relex.hotelteam.dto.type.TypeDto;
 
 /**
  * Author: Yakimov Date: 20.07.2019 Time: 21:04
@@ -14,13 +14,13 @@ public class RoomBaseDto {
   private int number;
   private int floor;
 
-  private TypeDtoWithNoPrice type;
+  private TypeDto type;
 
-  private CategoryDtoWithNoPricemult category;
+  private CategoryDto category;
 
   private BigDecimal dailyPrice;
 
-  private List<FacilityDtoWithNoPrice> facilities;
+  private List<FacilityDto> facilities;
 
   public int getNumber() {
     return number;
@@ -38,27 +38,27 @@ public class RoomBaseDto {
     this.floor = floor;
   }
 
-  public List<FacilityDtoWithNoPrice> getFacilities() {
+  public List<FacilityDto> getFacilities() {
     return facilities;
   }
 
-  public void setFacilities(List<FacilityDtoWithNoPrice> facilities) {
+  public void setFacilities(List<FacilityDto> facilities) {
     this.facilities = facilities;
   }
 
-  public TypeDtoWithNoPrice getType() {
+  public TypeDto getType() {
     return type;
   }
 
-  public void setType(TypeDtoWithNoPrice type) {
+  public void setType(TypeDto type) {
     this.type = type;
   }
 
-  public CategoryDtoWithNoPricemult getCategory() {
+  public CategoryDto getCategory() {
     return category;
   }
 
-  public void setCategory(CategoryDtoWithNoPricemult category) {
+  public void setCategory(CategoryDto category) {
     this.category = category;
   }
 

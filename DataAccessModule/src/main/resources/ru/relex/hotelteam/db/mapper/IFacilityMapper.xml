@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ru.relex.hotelteam.db.mapper.IFacilityMapper">
+
+  <delete id="deleteFacility">
+    DELETE
+    FROM inprog.facilities
+    WHERE facility_id = #{id}
+  </delete>
+
+  <resultMap id="facilityMap" type="ru.relex.hotelteam.db.domain.Facility">
+    <id column="id" property="id"/>
+    <result column="name" property="name"/>
+    <result column="price" property="price"/>
+  </resultMap>
+
+  <select id="getFacilityById" resultMap="facilityMap">
+    SELECT facility_id as id,
+           name,
+           price
+    FROM inprog.facilities
+    WHERE facility_id = #{id}
+  </select>
+
+  <select id="listFacilities" resultMap="facilityMap">
+    SELECT facility_id as id,
+           name,
+           price
+    FROM inprog.facilities
+  </select>
+
+  <select id="createFacility" resultMap="facilityMap" parameterType="ru.relex.hotelteam.db.domain.Facility">
+    INSERT INTO inprog.facilities(name, price)
+    VALUES (#{name}, #{price}) RETURNING facility_id as id,
+                               name,
+                               price
+  </select>
+
+  <update id="updateFacility">
+    update inprog.facilities
+    <set>
+      <if test="Updated.name != null">
+        name = #{Updated.name} ,
+      </if>
+
+      <if test="Updated.price != null">
+        price = #{Updated.price} ,
+      </if>
+    </set>
+    where facility_id = #{id}
+  </update>
+</mapper>

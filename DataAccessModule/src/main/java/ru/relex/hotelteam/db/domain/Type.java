@@ -1,10 +1,13 @@
-package ru.relex.hotelteam.dto.type;
+package ru.relex.hotelteam.db.domain;
 
-public class TypeDto {
+import java.math.BigDecimal;
+
+public class Type {
 
   private int id;
   private boolean twinBed;
   private int places;
+  private BigDecimal price;
 
   public int getId() {
     return id;
@@ -14,7 +17,7 @@ public class TypeDto {
     this.id = id;
   }
 
-  public boolean getTwinBed() {
+  public boolean isTwinBed() {
     return twinBed;
   }
 
@@ -30,4 +33,11 @@ public class TypeDto {
     this.places = places;
   }
 
+  public BigDecimal getPrice() {
+    return price;
+  }
+
+  public void setPrice(BigDecimal price) {
+    this.price = price;
+  }
 }

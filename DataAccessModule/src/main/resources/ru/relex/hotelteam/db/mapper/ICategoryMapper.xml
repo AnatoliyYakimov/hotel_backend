@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ru.relex.hotelteam.db.mapper.ICategoryMapper">
+
+  <delete id="delete">
+    DELETE
+    FROM inprog.categories
+    WHERE category_id = #{id}
+  </delete>
+
+  <resultMap id="roomCategoryMap" type="ru.relex.hotelteam.db.domain.Category">
+    <id column="id" property="id"/>
+    <result column="name" property="name"/>
+    <result column="price_multiplier" property="priceMultiplier"/>
+  </resultMap>
+
+  <select id="getById" resultMap="roomCategoryMap">
+    SELECT category_id as id,
+           name,
+           price_multiplier
+    FROM inprog.categories
+    WHERE category_id = #{id}
+  </select>
+
+  <select id="getAll" resultMap="roomCategoryMap">
+    SELECT category_id as id,
+           name,
+           price_multiplier
+    FROM inprog.categories
+  </select>
+
+  <select id="save" resultMap="roomCategoryMap">
+    INSERT INTO inprog.categories(name, price_multiplier)
+    VALUES (#{category.name}, #{category.priceMultiplier}) RETURNING
+                                                           category_id as id,
+                                                           name,
+                                                           price_multiplier
+  </select>
+
+  <update id="update" parameterType="ru.relex.hotelteam.db.domain.Category">
+    update inprog.categories
+    <set>
+      <if test="updated.name != null and updated.name != ''">
+        name = #{updated.name} ,
+      </if>
+      <if test="updated.priceMultiplier != null">
+        price_multiplier = #{updated.priceMultiplier}
+      </if>
+    </set>
+    where category_id = #{id}
+  </update>
+</mapper>

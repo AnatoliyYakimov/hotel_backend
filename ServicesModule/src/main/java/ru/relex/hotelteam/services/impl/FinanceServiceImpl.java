@@ -1,15 +1,15 @@
-package ru.relex.hotelteam.impl;
+package ru.relex.hotelteam.services.impl;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
-import ru.relex.hotelteam.IFinanceService;
 import ru.relex.hotelteam.db.domain.BookingPayment;
 import ru.relex.hotelteam.db.mapper.IFinanceMapper;
 import ru.relex.hotelteam.dto.date.IntervalDto;
 import ru.relex.hotelteam.dto.finance.FinanceIncomeDto;
 import ru.relex.hotelteam.mapstruct.IBookingPaymentMapstruct;
+import ru.relex.hotelteam.services.IFinanceService;
 
 /**
  * For representation of finance statistics for income info.

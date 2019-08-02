@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ru.relex.hotelteam.db.mapper.ITypeMapper">
+
+  <delete id="delete">
+    DELETE
+    FROM inprog.types
+    WHERE type_id = #{id}
+  </delete>
+
+  <resultMap id="roomTypeMap" type="ru.relex.hotelteam.db.domain.Type">
+    <id column="id" property="id"/>
+    <result column="twin_bed" property="twinBed"/>
+  </resultMap>
+
+  <select id="getById" resultMap="roomTypeMap">
+    SELECT type_id as id,
+           twin_bed,
+           places,
+           price
+    FROM inprog.types
+    WHERE type_id = #{id}
+  </select>
+
+
+  <select id="getAll" resultMap="roomTypeMap">
+    SELECT type_id as id,
+           twin_bed,
+           places,
+           price
+    FROM inprog.types
+  </select>
+
+  <select id="save" resultMap="roomTypeMap">
+    INSERT INTO inprog.types(twin_bed, places, price)
+    VALUES (#{type.twinBed}, #{type.places}, #{type.price}) RETURNING
+                                                            type_id as id,
+                                                            twin_bed,
+                                                            places,
+                                                            price
+  </select>
+
+  <update id="update" parameterType="ru.relex.hotelteam.db.domain.Type">
+    update inprog.types
+    <set>
+      <if test="updated.places != null">
+        places = #{updated.places} ,
+      </if>
+      <if test="updated.twinBed != null">
+        twin_bed = #{updated.twinBed} ,
+      </if>
+      <if test="updated.price != null">
+        price = #{updated.price} ,
+      </if>
+    </set>
+    where type_id = #{id}
+  </update>
+</mapper>

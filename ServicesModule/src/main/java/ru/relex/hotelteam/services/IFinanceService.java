@@ -1,4 +1,4 @@
-package ru.relex.hotelteam;
+package ru.relex.hotelteam.services;
 
 import ru.relex.hotelteam.dto.date.IntervalDto;
 import ru.relex.hotelteam.dto.finance.FinanceIncomeDto;

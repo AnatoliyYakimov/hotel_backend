@@ -7,19 +7,27 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.NullValueMappingStrategy;
 import ru.relex.hotelteam.db.domain.Facility;
-import ru.relex.hotelteam.dto.facility.FacilityDtoWithNoPrice;
+import ru.relex.hotelteam.dto.facility.FacilityDto;
+import ru.relex.hotelteam.dto.facility.FacilityFullDto;
 
 @Mapper(componentModel = "spring")
 public interface IFacilityMapstruct {
 
   @Mapping(target = "price", ignore = true)
-  Facility fromDto(FacilityDtoWithNoPrice dto);
+  Facility fromDto(FacilityDto dto);
+
+  Facility fromDto(FacilityFullDto dto);
 
   @IterableMapping(nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT)
-  List<Facility> fromDto(List<FacilityDtoWithNoPrice> facilityList);
+  List<Facility> fromDto(List<FacilityFullDto> facilityList);
 
-  FacilityDtoWithNoPrice toDto(Facility facility);
+  FacilityDto toDto(Facility facility);
 
   @IterableMapping(nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT)
-  List<FacilityDtoWithNoPrice> toDto(List<Facility> facilityDTOList);
+  List<FacilityDto> toDto(List<Facility> facilityDTOList);
+
+  @IterableMapping(nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT)
+  List<FacilityFullDto> toFullDto(List<Facility> facilityDTOList);
+
+  FacilityFullDto toFullDto(Facility domain);
 }

@@ -1,9 +1,7 @@
-package ru.relex.hotelteam.impl;
+package ru.relex.hotelteam.services.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-import ru.relex.hotelteam.IBookingService;
-import ru.relex.hotelteam.IUserService;
 import ru.relex.hotelteam.db.domain.User;
 import ru.relex.hotelteam.db.mapper.IRoomMapper;
 import ru.relex.hotelteam.db.mapper.IUserMapper;
@@ -18,6 +16,8 @@ import ru.relex.hotelteam.exceptions.EmployeeException;
 import ru.relex.hotelteam.exceptions.EntityNotFoundException;
 import ru.relex.hotelteam.mapstruct.IFacilityMapstruct;
 import ru.relex.hotelteam.mapstruct.IUserMapstruct;
+import ru.relex.hotelteam.services.IBookingService;
+import ru.relex.hotelteam.services.IUserService;
 import ru.relex.hotelteam.shared.model.Authority;
 
 @Service

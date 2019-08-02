@@ -1,16 +1,16 @@
-package ru.relex.hotelteam.impl;
+package ru.relex.hotelteam.services.impl;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import org.springframework.stereotype.Service;
-import ru.relex.hotelteam.IBookingPaymentService;
 import ru.relex.hotelteam.db.domain.Booking;
 import ru.relex.hotelteam.db.domain.BookingPayment;
 import ru.relex.hotelteam.db.mapper.IBookingPaymentMapper;
 import ru.relex.hotelteam.dto.bookings.BookingPaymentDto;
 import ru.relex.hotelteam.exceptions.EntityNotFoundException;
 import ru.relex.hotelteam.mapstruct.IBookingPaymentMapstruct;
+import ru.relex.hotelteam.services.IBookingPaymentService;
 
 /**
  * Created by Tarasov Ivan on 20/07/2019 Time: 19:54.

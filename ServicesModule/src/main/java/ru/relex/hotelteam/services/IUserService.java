@@ -1,4 +1,4 @@
-package ru.relex.hotelteam;
+package ru.relex.hotelteam.services;
 
 import java.util.List;
 import ru.relex.hotelteam.dto.UserBaseDto;

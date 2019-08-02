@@ -1,9 +1,8 @@
-package ru.relex.hotelteam.impl;
+package ru.relex.hotelteam.services.impl;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.stereotype.Service;
-import ru.relex.hotelteam.IBookingService;
 import ru.relex.hotelteam.db.domain.Booking;
 import ru.relex.hotelteam.db.mapper.IBookingMapper;
 import ru.relex.hotelteam.dto.bookings.BookingCreateDto;
@@ -16,6 +15,7 @@ import ru.relex.hotelteam.exceptions.CreateBookingException;
 import ru.relex.hotelteam.exceptions.EntityNotFoundException;
 import ru.relex.hotelteam.exceptions.RegisterGuestException;
 import ru.relex.hotelteam.mapstruct.IBookingMapstruct;
+import ru.relex.hotelteam.services.IBookingService;
 
 @Service
 public class BookingServiceImpl implements IBookingService {

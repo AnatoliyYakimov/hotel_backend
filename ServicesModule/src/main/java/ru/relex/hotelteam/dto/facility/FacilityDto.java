@@ -1,6 +1,6 @@
 package ru.relex.hotelteam.dto.facility;
 
-public class FacilityDtoWithNoPrice {
+public class FacilityDto {
 
   private int id;
   private String name;

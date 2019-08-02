@@ -1,11 +1,10 @@
-package ru.relex.hotelteam.impl;
+package ru.relex.hotelteam.services.impl;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
-import ru.relex.hotelteam.IRoomService;
 import ru.relex.hotelteam.db.domain.Room;
 import ru.relex.hotelteam.db.mapper.IRoomMapper;
 import ru.relex.hotelteam.dto.RoomBaseDto;
@@ -13,6 +12,7 @@ import ru.relex.hotelteam.dto.RoomWithIdDto;
 import ru.relex.hotelteam.dto.date.IntervalDto;
 import ru.relex.hotelteam.exceptions.EntityNotFoundException;
 import ru.relex.hotelteam.mapstruct.IRoomMapstruct;
+import ru.relex.hotelteam.services.IRoomService;
 import ru.relex.hotelteam.shared.model.CurrentUser;
 
 @Service

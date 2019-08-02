@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import ru.relex.hotelteam.IUserService;
 import ru.relex.hotelteam.dto.UserAuthDto;
 import ru.relex.hotelteam.dto.UserBaseDto;
 import ru.relex.hotelteam.dto.UserDto;
@@ -22,7 +21,7 @@ import ru.relex.hotelteam.dto.UserEmployeeDto;
 import ru.relex.hotelteam.dto.UserSecurityDto;
 import ru.relex.hotelteam.dto.UserUpdateDto;
 import ru.relex.hotelteam.dto.bookings.BookingFullDto;
-import ru.relex.hotelteam.shared.model.Authority;
+import ru.relex.hotelteam.services.IUserService;
 
 @RestController
 @RequestMapping(path = "/users",

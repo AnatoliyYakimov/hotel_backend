@@ -46,7 +46,7 @@ public interface IBookingMapstruct {
       @Mapping(target = "room.floor", source = "floor"),
       @Mapping(target = "room.type.id", source = "typeId"),
       @Mapping(target = "room.type.places", source = "places"),
-      @Mapping(target = "room.type.twinbed", source = "twinBed"),
+      @Mapping(target = "room.type.twinBed", source = "twinBed"),
       @Mapping(target = "room.dailyPrice", source = "dailyPrice"),
       @Mapping(target = "room.facilities", source = "facilities"),
       @Mapping(target = "booking.id", source = "bookingId"),
