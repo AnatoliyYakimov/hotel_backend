@@ -34,8 +34,8 @@ public class BookingServiceImpl implements IBookingService {
   @Override
   public BookingDto createBooking(BookingCreateDto bookingDto) throws CreateBookingException {
     // Определим есть ли уже брони на данный период времени (даты из dto)
-    List<Booking> booking = mapper.getBookingsBetweenDates(bookingDto.getRoomId()
-        , bookingDto.getCheckInDate(), bookingDto.getCheckOutDate());
+    List<Booking> booking = mapper
+        .getBookingsBetweenDates(bookingDto.getRoomId(), bookingDto.getCheckInDate(), bookingDto.getCheckOutDate());
 
     if (booking.isEmpty()) {
       // их нету, зеачит можно создать новую бронь

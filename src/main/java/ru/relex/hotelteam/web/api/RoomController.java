@@ -40,7 +40,6 @@ public class RoomController {
     return service.getAllRooms();
   }
 
-  @RolesAllowed({"ROLE_OWNER","ROLE_ADMIN"})
   @GetMapping("/vacancies")
   public List<RoomWithIdDto> getVacancies(@RequestParam("checkIn") String checkIn,
       @RequestParam("checkOut") String checkOut)
@@ -53,11 +52,13 @@ public class RoomController {
     return service.getVacancies(interval);
   }
 
+  @RolesAllowed({"ROLE_OWNER"})
   @PostMapping
   public RoomBaseDto saveRoom(@RequestBody RoomBaseDto room) throws SQLException {
     return service.saveRoom(room);
   }
 
+  @RolesAllowed({"ROLE_OWNER"})
   @PutMapping("/{id}")
   public RoomBaseDto updateRoom(@PathVariable("id") int id, @RequestBody RoomBaseDto room) {
     return service.updateRoom(id, room);

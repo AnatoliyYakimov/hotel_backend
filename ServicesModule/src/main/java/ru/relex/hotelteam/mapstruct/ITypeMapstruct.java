@@ -15,9 +15,9 @@ public interface ITypeMapstruct {
   @Mapping(target = "price", ignore = true)
   Type fromDto(TypeDto dto);
 
-  TypeFullDto toDto(Type type);
-
   List<Type> fromDto(List<TypeDto> typeList); //зачем лист тоже неясно
+
+  TypeFullDto toDto(Type type);
 
   List<TypeDto> toDto(List<Type> typeList);
 }

@@ -23,8 +23,8 @@ public class FacilityController {
 
   private final IFacilityService facilityService;
 
-  public FacilityController(final IFacilityService FacilityService) {
-    this.facilityService = FacilityService;
+  public FacilityController(final IFacilityService facilityService) {
+    this.facilityService = facilityService;
   }
 
   @PostMapping

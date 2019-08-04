@@ -24,10 +24,10 @@ public interface IFacilityMapstruct {
   FacilityDto toDto(Facility facility);
 
   @IterableMapping(nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT)
-  List<FacilityDto> toDto(List<Facility> facilityDTOList);
+  List<FacilityDto> toDto(List<Facility> facilityDtoList);
 
   @IterableMapping(nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT)
-  List<FacilityFullDto> toFullDto(List<Facility> facilityDTOList);
+  List<FacilityFullDto> toFullDto(List<Facility> facilityDtoList);
 
   FacilityFullDto toFullDto(Facility domain);
 }

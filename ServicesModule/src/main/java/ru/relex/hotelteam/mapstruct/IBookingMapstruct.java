@@ -20,7 +20,11 @@ public interface IBookingMapstruct {
 
   Booking fromDto(BookingDto dto);
 
+  List<Booking> fromDto(List<BookingDto> bookingDtoList);
+
   BookingDto toDto(Booking booking);
+
+  List<BookingDto> toDto(List<Booking> bookings);
 
   @Mapping(target = "id", ignore = true)
   @Mapping(target = "realCheckInDate", ignore = true)
@@ -33,10 +37,6 @@ public interface IBookingMapstruct {
   Booking fromUpdateDto(BookingUpdateDto dto);
 
   BookingUpdateDto toUpdateDto(Booking booking);
-
-  List<BookingDto> toDto(List<Booking> bookings);
-
-  List<Booking> fromDto(List<BookingDto> bookingDtoList);
 
   @Mappings({
       @Mapping(target = "room.id", source = "roomId"),
@@ -58,7 +58,10 @@ public interface IBookingMapstruct {
       @Mapping(target = "booking.realCheckOutDate", source = "realCheckOutDate"),
       @Mapping(target = "payment.bookingId", source = "bookingId"),
       @Mapping(target = "payment.date", source = "date"),
-      @Mapping(target = "payment.total", source = "total")
+      @Mapping(target = "payment.total", source = "total"),
+      @Mapping(target = "booking", ignore = true),
+      @Mapping(target = "payment", ignore = true),
+      @Mapping(target = "room", ignore = true)
   })
   BookingFullDto toFullDto(BookingFull bookingFull);
 

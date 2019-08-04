@@ -86,8 +86,8 @@ public class UserServiceImpl implements IUserService {
 
   @Override
   public void update(int id, UserUpdateDto updatedUser) {
-    User user = mapper.getUserById(id).
-        orElseThrow(() -> new EntityNotFoundException("User", id));
+    User user = mapper.getUserById(id)
+        .orElseThrow(() -> new EntityNotFoundException("User", id));
 
     user.setFirstName(updatedUser.getFirstName());
     user.setLastName(updatedUser.getLastName());
@@ -110,7 +110,7 @@ public class UserServiceImpl implements IUserService {
   }
 
   /**
-   * Created by tarasov Ivan.
+   * Created by Tarasov Ivan.
    *
    * @param userId updating user
    * @param authority concrete security authority for user (OWNER, ADMIN, GUEST)

@@ -32,15 +32,15 @@ public abstract class IUserMapstruct {
   abstract UserDto toDto(User user);
 
   @Mapping(target = "password", expression = "java(mapPassword(dto))")
-  @Mapping(target = "authority", ignore = true)
-  public abstract User toDomain(UserDto dto);
-
-  @Mapping(target = "password", expression = "java(mapPassword(dto))")
   public abstract User toDomainFromEmployee(UserEmployeeDto dto);
 
   public abstract List<UserBaseDto> fromDomain(List<User> users);
 
   public abstract List<User> toDomain(List<UserDto> userDtos);
+
+  @Mapping(target = "password", expression = "java(mapPassword(dto))")
+  @Mapping(target = "authority", ignore = true)
+  public abstract User toDomain(UserDto dto);
 
   @Mapping(target = "password", ignore = true)
   public abstract User fromBaseDto(UserBaseDto dto);
